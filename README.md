@@ -62,7 +62,7 @@ Once done, close the simulation by going to Simulation → "Close Simulation".
 ## Verilog Code
 
 ## 4:1 MUX Gate-Level Implementation
-
+~~~
 // mux4_to_1_gate.v
 module mux4_to_1_gate (
     input wire A,
@@ -89,9 +89,9 @@ module mux4_to_1_gate (
     // OR gate to combine all AND gate outputs
     or (Y, A_and, B_and, C_and, D_and);
 endmodule
-
+~~~
 ## 4:1 MUX Data Flow Implementation
-
+~~~
 // mux4_to_1_dataflow.v
 module mux4_to_1_dataflow (
     input wire A,
@@ -107,9 +107,9 @@ module mux4_to_1_dataflow (
                (S1 & ~S0 & C) |
                (S1 & S0 & D);
 endmodule
-
+~~~
 ## 4:1 MUX Behavioral Implementation
-
+~~~
 // mux4_to_1_behavioral.v
 module mux4_to_1_behavioral (
     input wire A,
@@ -130,10 +130,12 @@ module mux4_to_1_behavioral (
         endcase
     end
 endmodule
+~~~
+
 ![image](https://github.com/user-attachments/assets/fcdff67b-c1c2-403a-890d-7b8bf9ff2939)
 
 ## 4:1 MUX Structural Implementation
-
+~~~
 // mux2_to_1.v
 module mux2_to_1 (
     input wire A,
@@ -143,8 +145,8 @@ module mux2_to_1 (
 );
     assign Y = S ? B : A;
 endmodule
-
-
+~~~
+~~~
 // mux4_to_1_structural.v
 module mux4_to_1_structural (
     input wire A,
@@ -164,10 +166,12 @@ module mux4_to_1_structural (
     // Instantiate the final 2:1 MUX
     mux2_to_1 mux_final (.A(mux_low), .B(mux_high), .S(S1), .Y(Y));
 endmodule
+~~~
+
 ![image](https://github.com/user-attachments/assets/c8615ec3-56de-461f-a0ac-a0da192702dc)
 
 ## Testbench Implementation
-
+~~~
 // mux4_to_1_tb.v
 `timescale 1ns / 1ps
 
@@ -254,16 +258,17 @@ module mux4_to_1_tb;
                  $time, S1, S0, A, B, C, D, Y_gate, Y_dataflow, Y_behavioral, Y_structural);
     end
 endmodule
-
+~~~
 
 ## Sample Output
-
+~~~
 Time=0 | S1=0 S0=0 | Inputs: A=0 B=0 C=0 D=0 | Y_gate=0 | Y_dataflow=0 | Y_behavioral=0 | Y_structural=0
 Time=10 | S1=0 S0=0 | Inputs: A=0 B=0 C=0 D=0 | Y_gate=0 | Y_dataflow=0 | Y_behavioral=0 | Y_structural=0
 Time=20 | S1=0 S0=0 | Inputs: A=0 B=0 C=0 D=1 | Y_gate=0 | Y_dataflow=0 | Y_behavioral=0 | Y_structural=0
 Time=30 | S1=0 S0=1 | Inputs: A=0 B=0 C=0 D=1 | Y_gate=0 | Y_dataflow=0 | Y_behavioral=0 | Y_structural=0
 Time=40 | S1=1 S0=0 | Inputs: A=0 B=0 C=0 D=1 | Y_gate=0 | Y_dataflow=0 | Y_behavioral=0 | Y_structural=0
 ...
+~~~
 
 ## Conclusion:
 
