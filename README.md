@@ -90,6 +90,9 @@ module mux4_to_1_gate (
     or (Y, A_and, B_and, C_and, D_and);
 endmodule
 ~~~
+
+![image](https://github.com/user-attachments/assets/010ccdb7-727a-4cd3-9c21-f9c0725bb24c)
+
 ## 4:1 MUX Data Flow Implementation
 ~~~
 // mux4_to_1_dataflow.v
@@ -108,6 +111,9 @@ module mux4_to_1_dataflow (
                (S1 & S0 & D);
 endmodule
 ~~~
+
+![image](https://github.com/user-attachments/assets/02eb772d-8363-48f8-9ebe-bd4ae658f6ba)
+
 ## 4:1 MUX Behavioral Implementation
 ~~~
 // mux4_to_1_behavioral.v
